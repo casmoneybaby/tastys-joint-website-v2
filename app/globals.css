@@ -1,0 +1,344 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ══════════════════════════════════════════════════════════════════
+   TASTY'S JOINT V2 — "Smoke & Sail"
+   Two-tone editorial. Cream paper. Deep ink type. Saffron pockets.
+   Tomato red rationed to a single character per screen.
+   ══════════════════════════════════════════════════════════════════ */
+
+:root {
+  --cream: #f4efe6;
+  --cream-2: #ebe3d4;
+  --ink: #111111;
+  --ink-2: #1a1a1a;
+  --ash: #7a756c;
+  --ash-dim: #b7b0a4;
+  --line: #d9d2c2;
+  --saffron: #d4a537;
+  --saffron-deep: #a87e1f;
+  --tomato: #c8392e;
+  --smoke: #2a2118;
+  --bay: #1f3a4a;
+
+  --container: 1440px;
+  --gutter: clamp(1.25rem, 5vw, 4rem);
+  --section-y: clamp(5rem, 10vw, 8.5rem);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  background: var(--cream);
+  scroll-behavior: auto;
+}
+
+body {
+  background-color: var(--cream);
+  color: var(--ink);
+  font-family: var(--font-inter), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  font-feature-settings: "ss01", "cv11";
+}
+
+/* ─── Lenis smooth scroll helpers ─── */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+/* ─── Scrollbar ─── */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--cream);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--ink);
+  border-radius: 0;
+}
+
+/* ─── Selection — ink fill, cream text ─── */
+::selection {
+  background: var(--ink);
+  color: var(--cream);
+}
+
+/* ─── Links ─── */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* ─── Containers ─── */
+.container-x {
+  width: 100%;
+  max-width: var(--container);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+.section {
+  position: relative;
+  padding-block: var(--section-y);
+}
+
+/* ─── Typographic primitives ─── */
+.eyebrow {
+  font-family: var(--font-mono), monospace;
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--ink);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+.eyebrow::before {
+  content: "";
+  width: 28px;
+  height: 1px;
+  background: var(--ink);
+  display: inline-block;
+}
+.eyebrow--light {
+  color: var(--cream);
+}
+.eyebrow--light::before {
+  background: var(--cream);
+}
+
+.display {
+  font-family: var(--font-anton), Impact, sans-serif;
+  font-weight: 400;
+  line-height: 0.86;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+}
+
+.kicker {
+  font-family: var(--font-mono), monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+}
+
+.script {
+  font-family: var(--font-fraunces), Georgia, serif;
+  font-style: italic;
+  font-variation-settings: "SOFT" 100, "WONK" 1;
+}
+
+.text-gradient-ink {
+  background: linear-gradient(180deg, var(--ink) 0%, var(--ink-2) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.text-gradient-saffron {
+  background: linear-gradient(120deg, var(--saffron) 0%, var(--saffron-deep) 90%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* ─── Buttons ─── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  font-family: var(--font-mono), monospace;
+  font-size: 0.74rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  padding: 1rem 1.85rem;
+  border-radius: 0;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: transform 0.2s cubic-bezier(0.22, 1, 0.36, 1),
+    background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+  white-space: nowrap;
+  position: relative;
+}
+.btn--ink {
+  background: var(--ink);
+  color: var(--cream);
+}
+.btn--ink:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 4px 4px 0 var(--cream-2);
+}
+.btn--outline {
+  background: transparent;
+  border-color: var(--ink);
+  color: var(--ink);
+}
+.btn--outline:hover {
+  background: var(--ink);
+  color: var(--cream);
+}
+.btn--ghost {
+  background: transparent;
+  color: var(--ink);
+  border-color: transparent;
+  padding-inline: 0;
+}
+.btn--ghost::after {
+  content: "→";
+  margin-left: 0.6rem;
+  transition: transform 0.25s ease;
+}
+.btn--ghost:hover::after {
+  transform: translateX(4px);
+}
+
+@media (max-width: 768px) {
+  .btn {
+    padding: 0.85rem 1.4rem;
+    font-size: 0.7rem;
+  }
+}
+
+/* ─── Hairlines ─── */
+.hairline {
+  height: 1px;
+  width: 100%;
+  background: var(--ink);
+  opacity: 0.18;
+}
+.hairline--solid {
+  opacity: 1;
+}
+
+/* ─── Inverted (dark) section helpers ─── */
+.dark-paper {
+  background: var(--ink);
+  color: var(--cream);
+}
+.dark-paper ::selection {
+  background: var(--cream);
+  color: var(--ink);
+}
+
+/* ─── Grain overlay (subtle paper texture) ─── */
+.grain::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.18 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  opacity: 0.55;
+  mix-blend-mode: multiply;
+  z-index: 0;
+}
+
+.dark-paper.grain::after {
+  opacity: 0.2;
+  mix-blend-mode: screen;
+}
+
+/* ─── Clip-path reveal helpers (css-only fallback for no-JS) ─── */
+.clip-reveal {
+  clip-path: inset(0 0 100% 0);
+}
+
+/* ─── Focus rings (a11y) ──────────────────────────────────────── */
+*:focus {
+  outline: none;
+}
+*:focus-visible {
+  outline: 2px solid var(--saffron);
+  outline-offset: 3px;
+}
+.dark-paper *:focus-visible {
+  outline-color: var(--cream);
+}
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline-offset: 1px;
+  border-color: var(--saffron);
+}
+@media (prefers-reduced-motion: reduce) {
+  .clip-reveal {
+    clip-path: none !important;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+/* ─── React Three Fiber hidden by default (we keep lightweight) ─── */
+.three-host {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+/* ─── Tag (mono labels) ─── */
+.tag {
+  font-family: var(--font-mono), monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  padding: 0.35rem 0.7rem;
+  border: 1px solid var(--ink);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  border-radius: 999px;
+}
+.tag--filled {
+  background: var(--ink);
+  color: var(--cream);
+}
+.tag--saffron {
+  border-color: var(--saffron-deep);
+  color: var(--saffron-deep);
+}
+.tag--tomato {
+  border-color: var(--tomato);
+  color: var(--tomato);
+}
+
+/* ─── Underline that draws ─── */
+.draw-under {
+  background-image: linear-gradient(currentColor, currentColor);
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  background-size: 100% 1.5px;
+  padding-bottom: 2px;
+  transition: background-size 0.4s var(--ease-crisp);
+}
+.draw-under:hover {
+  background-size: 0 1.5px;
+  background-position: 100% 100%;
+}
+
+/* ─── Big-number editorial marker ─── */
+.marker {
+  font-family: var(--font-mono), monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
