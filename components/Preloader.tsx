@@ -45,8 +45,7 @@ export default function Preloader() {
       <div className="container-x h-full flex">
         <div className="m-auto grid grid-cols-2 gap-12 items-end w-full pb-12">
           <div>
-            <div className="marker" style={{ color: "#D4A537", letterSpacing: "0.4em" }}>
-              [ TASTY'S JOINT • SAUSALITO ]
+            <div className="marker" style={{ color: "#D4A537", letterSpacing: "0.4em" }}>              [ TASTY&apos;S JOINT • SAUSALITO ] 
             </div>
             <div className="display mt-3" style={{ fontSize: "clamp(3.5rem, 9vw, 7rem)", lineHeight: 0.86 }}>
               WARMING<br />THE GRIDDLE.
