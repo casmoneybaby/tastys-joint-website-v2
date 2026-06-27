@@ -115,3 +115,5 @@ tailwind.config.ts # Tokens for the 90/9/1 palette + Fraunces variation axes
 ## Licenses
 
 Photos: Unsplash (free use). Typefaces: Google Fonts (Open Font License).
+
+<!-- trigger auto-deploy via git push to main -->
